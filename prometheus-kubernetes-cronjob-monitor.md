@@ -1,8 +1,8 @@
 # Overview
-A customer would like to alert when a kuberntes CronJob fails.
+Alert when a kuberntes CronJob fails.
 
 # Requirements
-This solution uses metrics from [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) and assumes a label named `cronjob_name` has been added to `.spec.jobTemplate.metadata.labels`. (I recommend adding this label to `.spec.jobTemplate.spec.template.metadata.labels` as well, but not required.)
+This solution requires that [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) be installed in your Kubernetes cluster. It also assumes a label named `cronjob_name` has been added to `.spec.jobTemplate.metadata.labels` in each CronJob. (I recommend adding the `cronjob_name` label to `.spec.jobTemplate.spec.template.metadata.labels` as well, but this is not required.)
 
 # Prometheus Monitor for Kubernetes CronJobs
 The following prometheus query outputs the number of failures for the most recent [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/) for each [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/). If there are no failures (aka, no cronjobs are failing) there will be no output.
