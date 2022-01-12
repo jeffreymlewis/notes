@@ -108,6 +108,6 @@ kubelet --version
 
 * Restart cluster autoscaler
 ```
-kubectl -n kube-system scale deployments/cluster-autoscaler-aws-cluster-autoscaler --replicas=0
-kubectl -n kube-system get pods -l app.kubernetes.io/instance=cluster-autoscaler  # re-run until all pods are shutdown
+kubectl -n kube-system scale deployments/cluster-autoscaler-aws-cluster-autoscaler --replicas=N
+kubectl -n kube-system get pods -l app.kubernetes.io/instance=cluster-autoscaler  # ensure running
 ```
